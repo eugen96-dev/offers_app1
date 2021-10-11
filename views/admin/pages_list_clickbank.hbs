@@ -1,0 +1,81 @@
+<div class="ui breadcrumb">
+    <a class="section" href="/admin/offers/list">Home</a>
+    <i class="right angle icon divider"></i>
+    <a class="section" href="/admin/offers/list">Offers</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">{{dbOffer.name}}</div>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Pages list</div>
+</div>
+<p></p>
+
+<table class="ui compact celled table stacked segment">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Slug</th>
+        <th>Order form ID (cbskin)</th>
+        <th>Upsell flow ID (cbfid)</th>
+        <th>SKU #1</th>
+        <th>SKU #2</th>
+        <th>SKU #3</th>
+        <th>SKU #4</th>
+        <th>SKU #5</th>
+        <th>SKU #6</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>`
+    {{#each list}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.slug}}</td>
+            <td>{{this.cbskin}}</td>
+            <td>{{this.cbfid}}</td>
+            <td>{{this.pid1}}</td>
+            <td>{{this.pid2}}</td>
+            <td>{{this.pid3}}</td>
+            <td>{{this.pid4}}</td>
+            <td>{{this.pid5}}</td>
+            <td>{{this.pid6}}</td>
+            <td>
+                <div class="ui dropdown">
+                    <div class="text">Select</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="{{this._id}}/edit" class="item"><i class="edit outline icon"></i>Edit</a>
+                        <a href="delete/{{this._id}}" onClick="return confirm('Are you sure to delete this record ?');" class="item"><i class="window close outline icon"></i>Delete</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+    <tfoot class="full-width">
+        <tr>
+            <th colspan="11">
+                <div class="ui right floated floating labeled icon dropdown button small">
+                    <i class="plus icon"></i>
+                    <span class="text">Add page</span>
+                    <div class="menu">
+                        <div class="header">
+                            <i class="tags icon"></i>
+                            Page type
+                        </div>
+                        <div class="divider"></div>
+                        <a class="item" href="create-front">
+                            Frontsell
+                        </a>
+                        <div class="item">
+                            Upsell
+                        </div>
+                    </div>
+                </div>
+            </th>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+    $('.ui.dropdown').dropdown();
+</script>

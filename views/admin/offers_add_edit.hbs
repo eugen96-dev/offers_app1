@@ -1,0 +1,57 @@
+<div class="ui breadcrumb">
+    <a class="section" href="/admin/">Home</a>
+    <i class="right angle icon divider"></i>
+    <a class="section" href="/admin/offers/list">Offers</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">{{viewTitle}}</div>
+</div>
+<p></p>
+
+<form action="/admin/offers/update/" method="POST" class="ui large form">
+    <input type="hidden" name="_id" value="{{offer._id}}">
+
+    <div class="ui stacked segment">
+        <div class="field">
+            <label>Offer Name</label>
+            <input type="text" name="name" placeholder="Offer Name" value="{{offer.name}}" required>
+        </div>
+        <div class="field">
+            <div class="two fields">
+                <div class="field">
+                    <label>Google tracking code</label>
+                    <input type="text" name="ga_tracking" placeholder="Google tracking code" value="{{offer.ga_tracking}}" required>
+                </div>
+                <div class="field">
+                    <label>URL Slug</label>
+                    <input type="text" name="slug" placeholder="Slug" value="{{offer.slug}}" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="two fields">
+                <div class="field">
+                    <label>Shop</label>
+                    <input type="text" name="shop" placeholder="Shop" value="{{offer.shop}}" required>
+                </div>
+                <div class="field">
+                    <label>Platform</label>
+                    <input type="text" name="platform" placeholder="Platform" value="{{offer.platform}}" required>
+                </div>
+                <div class="field">
+                    <label>Vendor name</label>
+                    <input type="text" name="vendor" placeholder="Vendor name" value="{{offer.vendor}}" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui centered grid" style="margin-top: 30px; margin-bottom: 10px">
+            <div class="ui buttons">
+                <a class="ui button" href="/admin/offers/list">Cancel</a>
+                <div class="or"></div>
+                <button class="ui positive button" type="submit">Save</button>
+            </div>
+        </div>
+
+    </div>
+</form>
